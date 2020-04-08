@@ -1,0 +1,17 @@
+{
+  "name": "election",
+  "version": "1.0.0",
+  "description": "import: ```mongoimport --uri \"mongodb://root:example@34.204.87.229:27017/?authSource=admin\" --drop --collection all_results --file electiondb.json```",
+  "main": "connection.js",
+  "dependencies": {
+    "mongodb": "^3.5.5"
+  },
+  "devDependencies": {
+    "mongodb": "^3.5.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
