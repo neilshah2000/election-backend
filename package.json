@@ -1,16 +1,24 @@
 {
   "name": "election",
   "version": "1.0.0",
-  "description": "import: ```mongoimport --uri \"mongodb://root:example@34.204.87.229:27017/?authSource=admin\" --drop --collection all_results --file electiondb.json```",
-  "main": "connection.js",
+  "description": "UK election results",
+  "main": "server.js",
   "dependencies": {
     "mongodb": "^3.5.5"
   },
   "devDependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "lodash": "^4.17.15",
     "mongodb": "^3.5.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --inspect-brk server.js"
   },
   "author": "",
   "license": "ISC"
