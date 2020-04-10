@@ -14,11 +14,12 @@
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "lodash": "^4.17.15",
-    "mongodb": "^3.5.5"
+    "mongodb": "^3.5.5",
+    "nodemon": "^2.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --inspect-brk server.js"
+    "start": "nodemon --inspect-brk server.js"
   },
   "author": "",
   "license": "ISC"

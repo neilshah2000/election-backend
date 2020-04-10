@@ -12,14 +12,32 @@ router.route('').get((req, res) => {
 });
 
 router.route('/election')
-  .get(electionCtrl.list)
-  .post(electionCtrl.create);
+    .get(electionCtrl.list)
+    .post(electionCtrl.create);
+
+router.route('/election/won')
+    .get(electionCtrl.wonElection)
+
+router.route('/election/ranking')
+    .get(electionCtrl.electionRanking)
+
+router.route('/election/lostDepositPairs')
+    .get(electionCtrl.lostDepositPairs)
+
+router.route('/election/partyLostDeposit/:party')
+    .get(electionCtrl.partyLostDeposit)
 
 router.route('/election/:areaId')
-  .get(electionCtrl.read)
-  .put(electionCtrl.update)
-  .delete(electionCtrl.remove);
+    .get(electionCtrl.read)
+    .put(electionCtrl.update)
+    .delete(electionCtrl.remove);
 
+router.route('/election/contested/:constId')
+    .get(electionCtrl.findContested)
+  
+router.route('/election/winner/:areaId')
+    .get(electionCtrl.findWinner)
 router.param('areaId', electionCtrl.areaByID);
+
 
 module.exports = router;
