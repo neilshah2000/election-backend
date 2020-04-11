@@ -9,17 +9,6 @@ getDatabase = () => {
     return mongo.collection('all_results');
 }
 
-exports.create = (req, res, next) => {
-    var collection = getDatabase();
-    collection.find({}).project({area: 1}).toArray((err, areas) => {
-        if (err) {
-            return res.status(400).json({
-                error: errorHandler.getErrorMessage(err)
-            });
-        }
-        res.status(200).json(areas);
-    });
-};
 
 exports.list = (req, res) => {
     var collection = getDatabase();
@@ -33,36 +22,6 @@ exports.list = (req, res) => {
     });
 };
 
-// areaByID() called first
-// req.area will contain a area
-// type object from DB
-exports.read = (req, res) => {
-    return res.status(200).json(req.area);
-};
-
-// areaByID() called first
-// req.area will contain a area
-// type object from DB
-exports.update = (req, res, next) => {
-    // let originalJournal = req.journal;
-    // let newJournal = _.extend(originalJournal, req.body);
-    // newJournal.updated = Date.now();
-    // newJournal.save((err, journal) => {
-    //     if (err) {
-    //         return res.status(400).json({
-    //             error: errorHandler.getErrorMessage(err)
-    //         });
-    //     }
-    //     res.json(journal);
-    // });
-};
-
-// areaByID() called first
-// req.area will contain a area
-// type object from DB
-exports.remove = (req, res, next) => {
-
-};
 
 // areaByID() called first
 // req.area will contain a area
@@ -73,9 +32,6 @@ exports.findWinner = (req, res, next) => {
     return res.status(200).json(winner);
 };
 
-// areaByID() called first
-// req.area will contain a area
-// type object from DB
 exports.findContested = async (req, res) => {
     var collection = getDatabase();
     id = new ObjectID(req.params.constId);

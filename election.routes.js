@@ -3,17 +3,8 @@ var electionCtrl = require('./election.controller');
 
 const router = express.Router();
 
-router.route('test').get((req, res) => {
-    return res.json({test: 'test'});
-});
-
-router.route('').get((req, res) => {
-    return res.json({test: ''});
-});
-
 router.route('/election')
     .get(electionCtrl.list)
-    .post(electionCtrl.create);
 
 router.route('/election/won')
     .get(electionCtrl.wonElection)
@@ -27,10 +18,6 @@ router.route('/election/lostDepositPairs')
 router.route('/election/partyLostDeposit/:party')
     .get(electionCtrl.partyLostDeposit)
 
-router.route('/election/:areaId')
-    .get(electionCtrl.read)
-    .put(electionCtrl.update)
-    .delete(electionCtrl.remove);
 
 router.route('/election/contested/:constId')
     .get(electionCtrl.findContested)

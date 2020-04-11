@@ -21,12 +21,7 @@ app.use('/api', electionRoutes);
 
 
 const CURRENT_WORKING_DIR = process.cwd();
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
-
-// let all routing be handled by client side
-// app.get('*', (req, res) => {
-//     res.status(200).send(template());
-// });
+app.use('/', express.static(path.join(CURRENT_WORKING_DIR, 'frontend')));
 
 
 /**
@@ -50,23 +45,3 @@ db.connect(url, function(err) {
         });
     }
 })
-
-// (async function(){
-//     try {
-//         let client = await MongoClient.connect(url)
-//         const db = client.db("test");
-//         var cursor = db.collection('all_results').find({}).project({area: 1});
-//         cursor.forEach(iterateFunc, errorFunc);
-//     } catch (err) {
-//         console.error(err)
-//     }
-// })();
-
-
-// function iterateFunc(doc) {
-//     console.log(JSON.stringify(doc, null, 4));
-// }
- 
-//  function errorFunc(error) {
-//     console.log(error);
-// }
