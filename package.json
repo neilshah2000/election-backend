@@ -16,12 +16,19 @@
     "lodash": "^4.17.15",
     "mongodb": "^3.5.5",
     "nodemon": "^2.0.3",
-    "pkg": "^4.4.6"
+    "pkg": "^4.4.6",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect-brk server.js"
+    "start": "nodemon --inspect-brk server.js",
+    "build": "webpack --config webpack.config.js",
+    "prod": "node dist/serverApp.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "pkg": {
+    "assets": "frontend/**/*"
+  }
 }
