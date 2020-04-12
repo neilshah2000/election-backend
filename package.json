@@ -24,7 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect-brk server.js",
     "build": "webpack --config webpack.config.js",
-    "prod": "node dist/serverApp.js"
+    "prod": "sudo PORT=80 node dist/serverApp.js"
   },
   "author": "",
   "license": "ISC",

@@ -19,10 +19,15 @@ app.use(helmet());
 app.use(cors());
 app.use('/api', electionRoutes);
 
-
 const CURRENT_WORKING_DIR = process.cwd();
-app.use('/', express.static(path.join(CURRENT_WORKING_DIR, 'frontend')));
 
+app.use('/', express.static(path.join(CURRENT_WORKING_DIR, 'build')));
+
+app.get('/*', (req, res) => {
+    const indexFilePath = path.join(CURRENT_WORKING_DIR, 'build/index.html')
+    console.log('getting file: ' + indexFilePath);
+    res.sendFile(indexFilePath);
+})
 
 /**
  *  Mongo Stuff

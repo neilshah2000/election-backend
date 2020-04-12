@@ -6,5 +6,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist/'),
         filename: 'serverApp.js'
+    },
+    node: {
+        __dirname: true
     }
 };
